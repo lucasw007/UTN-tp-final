@@ -1,0 +1,31 @@
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AuthPage from './AuthPage';
+import ProductPage from './ProductPage';
+
+export default function App() {
+    const [token, setToken] = useState(localStorage.getItem('token'));
+
+    // Función para manejar el token y logout
+    const handleSetToken = (newToken) => {
+        if (newToken) {
+            localStorage.setItem('token', newToken);
+        } else {
+            localStorage.removeItem('token');
+        }
+        setToken(newToken);
+    };
+
+    const handleLogout = () => {
+        handleSetToken(null);
+    };
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<AuthPage setToken={handleSetToken} token={token} />} />
+                <Route path="/products" element={<ProductPage token={token} handleLogout={handleLogout} />} />
+            </Routes>
+        </BrowserRouter>
+    );
+}

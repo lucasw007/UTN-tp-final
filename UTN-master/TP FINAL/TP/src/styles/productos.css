@@ -1,0 +1,19 @@
+.productos-general-main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .text-centro-productos {
+    text-align: center;
+    background-color: #333; 
+    color: white;
+    border-radius: 30px;
+    padding: 15px;
+    width: 70%; 
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }

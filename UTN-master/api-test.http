@@ -1,0 +1,90 @@
+@baseurl = http://localhost:3000/api/v1
+@token = {{auth_token}}
+@categoryId = {{category_id}}
+@productId = {{product_id}}
+
+// La variable @token se llenará después del login.
+// La variable @categoryId se llenará después de la creación.
+// Para usar estas variables, necesitas la extensión 'Thunder Client' o 'Rest Client' configurada para guardar variables.
+
+### 1. REGISTRO DE USUARIO (POST /auth/register)
+// Crea el usuario inicial. Solo se hace una vez.
+
+POST {{baseurl}}/auth/register
+Content-Type: application/json
+
+{
+    "nombre": "Test User",
+    "email": "test@proyectocrud.com",
+    "password": "securePass123"
+}
+
+### 2. INICIO DE SESIÓN (POST /auth/login)
+// Obtiene el token JWT, necesario para todas las rutas protegidas.
+
+POST {{baseurl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@proyectocrud.com",
+    "password": "securePass123"
+}
+
+// Para usar el token automáticamente, deberías guardarlo en la variable @token
+// (Generalmente, esto requiere la funcionalidad de scripts de prueba de tu cliente HTTP).
+
+// **Si tu cliente no guarda variables automáticamente:**
+// Descomenta la línea @token, y después de ejecutar este paso, COPIA el valor del token
+// de la respuesta y PEGALO manualmente en la variable @token arriba.
+
+### 3. CREAR CATEGORÍA (Ruta Protegida - POST /categories)
+// Prueba: Verificación del middleware JWT.
+
+POST {{baseurl}}/categories
+Content-Type: application/json
+Authorization: Bearer <PEGA_AQUÍ_EL_JWT_DEL_PASO_2>
+
+{
+    "nombre": "Electronica",
+    "descripcion": "Dispositivos de consumo y accesorios"
+}
+
+// **Si tu cliente no guarda variables automáticamente:**
+// Descomenta la línea @categoryId, y después de ejecutar este paso, COPIA el _id 
+// de la categoría de la respuesta y PEGALO manualmente en la variable @categoryId arriba.
+
+### 4. CREAR PRODUCTO (Ruta Protegida - POST /products)
+// Prueba: Creación de un recurso con referencia a otra entidad.
+
+POST {{baseurl}}/products
+Content-Type: application/json
+Authorization: Bearer <PEGA_AQUÍ_EL_JWT_DEL_PASO_2>
+
+{
+    "nombre": "Smartphone X",
+    "descripcion": "Modelo de gama alta con 128GB",
+    "precio": 899.99,
+    "stock": 45,
+    "categoria": "<PEGA_AQUÍ_EL_ID_DE_CATEGORÍA_DEL_PASO_3>"
+}
+
+### 5. LEER TODOS LOS PRODUCTOS (Prueba de Populate - GET /products)
+// Requisito: Debe devolver los datos completos de la categoría, no solo el ID.
+
+GET {{baseurl}}/products
+
+### 6. ACTUALIZAR PRODUCTO (Ruta Protegida - PUT /products/:id)
+
+PUT {{baseurl}}/products/<PEGA_AQUÍ_EL_ID_DE_PRODUCTO_DEL_PASO_4>
+Content-Type: application/json
+Authorization: Bearer <PEGA_AQUÍ_EL_JWT_DEL_PASO_2>
+
+{
+    "precio": 799.99,
+    "stock": 50
+}
+
+### 7. ELIMINAR CATEGORÍA (Ruta Protegida - DELETE /categories/:id)
+
+DELETE {{baseurl}}/categories/<PEGA_AQUÍ_EL_ID_DE_CATEGORÍA_DEL_PASO_3>
+Authorization: Bearer <PEGA_AQUÍ_EL_JWT_DEL_PASO_2>

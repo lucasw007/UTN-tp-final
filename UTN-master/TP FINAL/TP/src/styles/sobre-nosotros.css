@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=National+Park:wght@200..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.afacad-flux {
+    font-family: "Afacad Flux", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+  }
+
+
+.container  h1{
+    font-size: 60px;
+}
+
+.sobre-nosotros-page-main{
+    margin-top: 100px;
+    margin-bottom: 400px;
+}
+
+.sobre-nosotros-text-container{
+    margin-top: 50px;
+}
+
+.sobre-nosotros-text-container p{
+    font-size: 20px;
+    margin-left: 20px;
+}

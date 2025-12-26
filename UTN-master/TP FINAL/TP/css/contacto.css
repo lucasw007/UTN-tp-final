@@ -1,0 +1,76 @@
+.contacto-principal-text{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.contacto-container{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+    width: 70%;
+}
+
+.input-name{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-email{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-telefono{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-mensaje{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-mensaje input{
+    padding-right: 300px;
+    padding-bottom: 200px;
+}
+
+.contacto-container label {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.contacto-container input {
+    margin-top: 10px;
+    margin-left: 50px;
+    padding-right: 900px;
+}
+
+.button-enviar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 50px
+}
+
+.button-enviar button{
+    width: 1000px;
+    padding: 5px;
+    border-radius: 36px;
+    background-color: rgb(65, 65, 65);
+    color: white;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    transition: color 0.3s ease;
+}
+
+.button-enviar button:hover{
+    color: rgb(163, 163, 163);
+}

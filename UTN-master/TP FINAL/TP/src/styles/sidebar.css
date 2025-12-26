@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=National+Park:wght@200..800&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Faculty+Glyphic&display=swap');
+
+
+.national-park-uniquifier {
+    font-family: "National Park", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+   }
+.afacad-flux {
+    font-family: "Afacad Flux", sans-serif;
+    font-optical-sizing: auto;
+  }
+
+.faculty-glyphic-regular {
+    font-family: "Faculty Glyphic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+}
+
+
+
+
+.sidebar-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: black; 
+    cursor: pointer;
+    padding: 5px 10px;
+    display: flex !important; 
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: -300px; 
+    width: 250px;
+    height: 100%;
+    background-color: white; 
+    color: rgb(0, 0, 0);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out; 
+    z-index: 1001; 
+    padding-top: 60px; 
+    display: flex; 
+    flex-direction: column;
+    visibility: hidden;
+    transform: none;
+  }
+  
+  .sidebar.is-open {
+    right: 0px !important; 
+    visibility: visible !important; 
+    display: flex !important;
+  }
+  
+  .sidebar-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background-color: white;
+    color: rgb(0, 0, 0); /* Color de la 'X' */
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1002;
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .sidebar-link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 15px 0;
+    font-size: 1.2em;
+    transition: background-color 0.2s ease;
+  }
+  
+  .sidebar-link:hover {
+    background-color: #cbcbcb;
+    border-radius: 5px;
+  }
+  
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); 
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+  
+
+ 
+  .sidebar-overlay.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  header .navbar-box {
+    justify-content: space-between;
+  }
+  
+  
+
+  @media (min-width: 768px) {
+    
+    .sidebar {
+      display: none; 
+    }
+    .sidebar-overlay {
+      display: none;
+    }
+  }
+  
